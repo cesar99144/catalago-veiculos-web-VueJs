@@ -2,22 +2,26 @@
     <Header />
     <Destaques />
     <Carros />
+    <Motos />
+    <Consultores />
 </template>
 
 <script>
 
   import Header from '@/components/Header.vue'
-  import Veiculos from '@/components/Veiculos.vue'
   import Destaques from '@/components/Destaques.vue';
   import Carros from '@/components/Carros.vue';
+  import Motos from '@/components/Motos.vue';
+  import Consultores from '@/components/Consultores.vue';
 
   export default {
     name: 'HomeView',
     components:{
-      Veiculos,
       Header,
       Destaques,
-      Carros
+      Carros,
+      Motos,
+      Consultores
     }
   }
 </script>
