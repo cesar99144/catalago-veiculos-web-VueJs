@@ -3,11 +3,16 @@
         <h3 class="titulo-content">Veículos em destaque</h3>
 
         <div id="areaDadosCard">
-            <CardVeiculos titulo="gol g6"/>
-            <CardVeiculos titulo="Fiat uno" imagem="http://localhost:8081/arquivosImagens/60b23a8a491fe.png" class="cardItem" />
-            <CardVeiculos titulo="gol g6" imagem="http://localhost:8081/arquivosImagens/60b047ca1c6b9.jpg" class="cardItem" />
-            <CardVeiculos titulo="Toro" imagem="http://localhost:8081/arquivosImagens/60b01f535af8e.jpg" class="cardItem" />
-            <CardVeiculos titulo="gol g6" imagem="" class="cardItem" />
+            <div class="cardItem"  v-for="veiculo in listaVeiculos" :key="veiculo.idVeiculo">
+                <CardVeiculos 
+                    :titulo="veiculo.tituloAnuncio"
+                    :imagem="veiculo.primeiraImagem"
+                    :marca="veiculo.marca"
+                    :modelo="veiculo.modelo"
+                    :ano="veiculo.ano"
+                    :preco="veiculo.preco"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -20,6 +25,27 @@
         name: 'Destaques',
         components:{
             CardVeiculos
+        },
+        data(){
+            return{
+                listaVeiculos: []
+            }
+        },
+        methods:{
+
+            async getVeiculosDestaques(){
+
+                const requisicao = await fetch('http://localhost:4000/destaques');
+                const data = await requisicao.json();
+
+                this.listaVeiculos = data;
+
+                console.log(this.listaVeiculos)
+            }
+        },
+        mounted(){
+
+            this.getVeiculosDestaques();
         }
     }
 </script>
@@ -46,11 +72,14 @@
     #areaDadosCard{
 
         display: flex;
+        grid-row: 1;
         margin-top: 10px;
     }
 
     .cardItem{
 
         margin-left: 20px;
+        width: 18%;
+        /* border: 1px solid; */
     }
 </style>
