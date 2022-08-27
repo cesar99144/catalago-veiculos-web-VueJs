@@ -2,7 +2,7 @@
     <div id="carros" class="section-content-veiculos">
         <div class="areaTopo-veiculos">
             <div class="logo-tituloCarros">
-                <img src="@/assets/Car.png" alt="">
+                <img src="@/assets/Motorcycle.png" alt="">
                 <h3 class="titulo-content-veiculos">Motos</h3>
             </div>
             <div class="">
