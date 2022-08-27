@@ -39,6 +39,9 @@ Inicie o servidor
   npm run serve
 ```
 
+Para que o projeto seja iniciado é preciso que a api esteja instalada localmente
+
+<a href="https://github.com/cesar99144/catalago-veiculos-web-VueJs">Acessar api</a>
 
 ## Screenshots
 
