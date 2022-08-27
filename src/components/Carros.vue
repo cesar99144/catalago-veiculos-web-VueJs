@@ -1,18 +1,18 @@
 <template>
-    <div id="carros" class="section-content-carros">
-        <div class="areaTopo-carros">
+    <div id="carros" class="section-content-veiculos">
+        <div class="areaTopo-veiculos">
             <div class="logo-tituloCarros">
                 <img src="@/assets/Car.png" alt="">
-                <h3 class="titulo-content-carros">Carros</h3>
+                <h3 class="titulo-content-veiculos">Carros</h3>
             </div>
             <div class="">
-                aplicar filtros
+                
             </div>
         </div>
         <div id="areaDadosVeiculos">
-            <div id="areaDadosCard-carros">
+            <div id="areaDadosCard-veiculos">
                 <div class="areaFiltroVeiculos">
-                    Filtros
+                    <FiltrarDados />
                 </div>
                 <div class="cardAreaVeiculo">
                     <div class="cardVeiculolist" v-for="veiculo in listaVeiculos" :key="veiculo.idVeiculo">
@@ -36,11 +36,13 @@
 <script>
 
     import CardVeiculos from './CardVeiculos.vue';
+    import FiltrarDados from './FiltrarDados.vue';
     
     export default {
         name: 'Carros',
         components:{
-            CardVeiculos
+            CardVeiculos,
+            FiltrarDados
         },
         data(){
             return{
@@ -73,7 +75,7 @@
         src: url(~@/assets/fonts/nunito/Nunito-ExtraBold.ttf)
     }
 
-    .section-content-carros{
+    .section-content-veiculos{
 
         /* padding-left: 7%; */
         margin-top: 20px;
@@ -81,10 +83,10 @@
 
     .areaTopo{
 
-        border: 1px solid;
+       
     }
 
-    .areaTopo-carros{
+    .areaTopo-veiculos{
 
         background: #0F2640;
         padding: 15px;
@@ -98,7 +100,6 @@
     .logo-tituloCarros{
 
         display: flex;
-        border: 1px solid;
         width: 30%;
         align-items: center;
     }
@@ -114,7 +115,7 @@
         margin-left: 10px;
     }
     
-    .titulo-content-carros{
+    .titulo-content-veiculos{
         font-family: NunitoExtrabold;
         font-size: 19pt;
         /* color: #0F2640; */
@@ -127,19 +128,21 @@
         padding-left: 40px;
     }
 
-    #areaDadosCard-carros{
+    #areaDadosCard-veiculos{
 
         display: flex;
         margin-top: 10px;
         width: 100%;
-        border: 1px solid;
         
     }
 
     .areaFiltroVeiculos{
 
-        border: 1px solid;
-        width: 15%;
+        width: 20%;
+        background: #FFFFFF;
+        padding: 10px;
+        margin-top: 20px;
+        height: 60%;
     }
 
     .cardAreaVeiculo{
@@ -147,8 +150,7 @@
         /* grid-template-columns:repeat(4, auto); */
         grid-template-columns:repeat(auto-fit, minmax(25%, 1fr));
         width: 100%;
-        border: 1px solid;
-        margin-left: 40px;
+        margin-left: 10px;
         /* width: 80%; */
     }
 
